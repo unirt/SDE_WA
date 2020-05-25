@@ -13,7 +13,7 @@
 
 #include "sde_wa_errno.h"
 
-enum SDE_type {ITO=0, STR=1};/* Ito=>0, Stratonovich=>1 */
+enum SDE_type { ITO = 0, STR = 1 }; /* Ito=>0, Stratonovich=>1 */
 
 typedef struct {
   enum SDE_type sde_type;
@@ -25,17 +25,15 @@ typedef struct {
   void *params;
 } SDE_WA_SYSTEM;
 
-enum ALG {E_M=0, N_V=1, N_N=2};
-enum Bernoulli_rv {T=0, H=1};
+enum ALG { E_M = 0, N_V = 1, N_N = 2 };
+enum Bernoulli_rv { T = 0, H = 1 };
 
 typedef struct {
   enum Bernoulli_rv rv_nv_b;
   double *rv_nv_n;
 } RV_NV;
 
-
-
-typedef struct sde_wa_sltn{
+typedef struct sde_wa_sltn {
   enum ALG alg;
   int mth_is;
   SDE_WA_SYSTEM *sde;
@@ -44,9 +42,9 @@ typedef struct sde_wa_sltn{
   double *destv;
   double *drift_step_interv; /* intermidiate values in drift correction etc. */
   double **drift_corrector_matrix; /* for Ito<->Stratonovich */
-  union{
-    double *em; 
-    RV_NV *nv; 
+  union {
+    double *em;
+    RV_NV *nv;
     double *nn;
   } sample_pt;
   double *rk_step_interv; /* RK intermidiate values for NV or NN*/
