@@ -26,7 +26,7 @@ CC = gcc
 
 DEBUG = -O2 -Wall
 
-SELF = basic.mk
+# SELF = basic.mk
 
 CFLAGS = $(DEBUG)
 
